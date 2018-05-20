@@ -2,7 +2,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 ::ng-deep :root {
-  --base-font-size: 20px;
+  --base-font-size: 16px;
   --line-height: 30px;
   --main-color: #3F51B5;/* --main-color: #345cd7; */
   --secondary-color: #FFC107;
