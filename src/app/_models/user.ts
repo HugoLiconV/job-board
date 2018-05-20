@@ -1,7 +1,19 @@
 export class User {
-    id: number;
-    username: string;
-    password: string;
-    firstName: string;
-    lastName: string;
+  email: string;
+  password: string;
+  name: string;
+  phone: string;
+  picture: string;
+  address: Address;
+  kind: String;
+}
+
+class Address {
+  city: string;
+  state: string;
+}
+
+enum kindsOfProfile {
+  student,
+  company
 }

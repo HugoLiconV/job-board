@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertService, UserService } from '../_services';
+import { User } from '../_models';
 
 @Component({
   selector: 'app-register',
@@ -11,9 +14,11 @@ export class RegisterComponent implements OnInit {
   loading = false;
 
   profileKind = [
-    'Student',
-    'Company',
+    'student',
+    'company',
   ];
+
+  // user: User;
 
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
@@ -24,9 +29,48 @@ export class RegisterComponent implements OnInit {
             '';
   }
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private alertService: AlertService
+  ) { }
 
   ngOnInit() {
   }
 
+  register() {
+    const user: User = {
+      email: 'hugo2@example.com',
+      password:  '123456',
+      kind:  'company',
+      name:  'Hugo',
+      phone:  '6141816618',
+      address: {
+        city:  'Aldama',
+        state:  'Chihuahua',
+      },
+      picture: ''
+      // email: this.model.email,
+      // password:  this.model.password,
+      // kind:  this.model.kind,
+      // name:  this.model.name,
+      // phone:  this.model.phone,
+      // address: {
+      //   city:  this.model.city,
+      //   state:  this.model.state,
+      // },
+      // picture: ''
+    };
+    // console.log(user);
+    this.userService.create(user)
+    .subscribe(
+      data => {
+        this.alertService.success('Registration successful', true);
+        this.router.navigate(['/login']);
+      },
+      error => {
+        this.alertService.error(error);
+        this.loading = false;
+    });
+  }
 }

@@ -37,10 +37,10 @@ export class LoginComponent implements OnInit {
             '';
   }
 
-  login(email: String, password: String) {
+  login(email: string, password: string) {
     console.log(`email: ${email} pass: ${password}`);
     this.loading = true;
-    this.authenticationService.login(this.model.email, this.model.password)
+    this.authenticationService.login(email, password)
     .subscribe(
       data => {
         this.router.navigate([this.returnUrl]);

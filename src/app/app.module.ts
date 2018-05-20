@@ -25,6 +25,7 @@ import { AlertComponent } from './_directives/index';
 // Helpers
 import { JwtInterceptor } from './_helpers/index';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserService } from './_services/user.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AuthGuard,
     AlertService,
     AuthenticationService,
+    UserService,
     ],
   bootstrap: [AppComponent]
 })

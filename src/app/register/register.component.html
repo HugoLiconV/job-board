@@ -1,33 +1,7 @@
-    <!--
-      email
-      password
-      name
-      phone
-      address.city
-      address.state
-      kind
-     -->
-<!-- <div class="container mat-elevation-z6">
-  <h2>Register</h2>
-  <form #loginForm="ngForm">
-    <mat-form-field>
-      <input matInput placeholder="Enter your email" name="Email" [formControl]="email" #Email ngModel required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" #Password ngModel name="Password">
-      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>
-    <a mat-button routerLink="/login" color="accent">Login</a>
-    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-  </form>
-</div> -->
-<!--  && register() -->
+<!-- f.form.valid &&  && register() -->
 <div class="container mat-elevation-z6">
     <h2>Register</h2>
-    <form name="form" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+    <form name="form" (ngSubmit)="register()" #f="ngForm" novalidate>
     <mat-form-field>
       <input matInput placeholder="Enter your email" name="Email" [(ngModel)]="model.email" #email="ngModel" required>
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
