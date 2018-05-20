@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../_services/index';
 
 @Component({
-    selector: 'app-alert',
-    templateUrl: 'alert.component.html'
+  moduleId: module.id.toString(),
+  selector: 'app-alert',
+  templateUrl: 'alert.component.html'
 })
 
 export class AlertComponent implements OnInit{
