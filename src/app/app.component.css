@@ -1,14 +1,36 @@
+::ng-deep :root {
+  --base-font-size: 20px;
+  --line-height: 30px;
+  --main-color: #3F51B5;/* --main-color: #345cd7; */
+  --secondary-color: #FFC107;
+  --main-font: "Roboto", sans-serif;
+  --secondary-font: "Roboto Condensed", sans-serif;
+  --padding-top-section: 120px;
+  --padding-bottom-section: 120px;
+  --padding-left-section: 11.5vw;
+  --padding-right-section: 11.5vw;
+  --title-color: #121212;
+  --body-color: #434345;
+  --acent-color: #e91e63;
+  --margin: 20px;
+}
+
 html, .root {
-  font-size: 20px;
-  line-height: 30px;
+  font-size: var(--base-font-size);
+  line-height: var(--line-height);
 }
 body, .article {
-  font-family: Roboto;
+  font-family: var(--secondary-font);
   font-size: 1rem;
   line-height: 1.5rem;
   max-width: 560px;
   margin: auto;
 }
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--main-font);
+}
+
 h1, .h1 {
   font-size: 3.4rem;
   line-height: 4.5rem;
