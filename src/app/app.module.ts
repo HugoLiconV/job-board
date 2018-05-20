@@ -24,6 +24,7 @@ import { AlertComponent } from './_directives/index';
 
 // Helpers
 import { JwtInterceptor } from './_helpers/index';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { JwtInterceptor } from './_helpers/index';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

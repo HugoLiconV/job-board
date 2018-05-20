@@ -1,7 +1,9 @@
-::ng-deep :root {
+@import "../styles.css";
+
+/* ::ng-deep :root {
   --base-font-size: 20px;
   --line-height: 30px;
-  --main-color: #3F51B5;/* --main-color: #345cd7; */
+  --main-color: #3F51B5;
   --secondary-color: #FFC107;
   --main-font: "Roboto", sans-serif;
   --secondary-font: "Roboto Condensed", sans-serif;
@@ -13,9 +15,9 @@
   --body-color: #434345;
   --acent-color: #e91e63;
   --margin: 20px;
-}
+} */
 
-html, .root {
+/* html, .root {
   font-size: var(--base-font-size);
   line-height: var(--line-height);
 }
@@ -29,9 +31,9 @@ body, .article {
 
 h1, h2, h3, h4, h5 {
   font-family: var(--main-font);
-}
+} */
 
-h1, .h1 {
+/* h1, .h1 {
   font-size: 3.4rem;
   line-height: 4.5rem;
   margin-top: 1.5rem;
@@ -68,10 +70,10 @@ p, ul, ol, pre, table, blockquote {
 ul ul, ol ol, ul ol, ol ul {
   margin-top: 0rem;
   margin-bottom: 0rem;
-}
+} */
 
 /* Let's make sure all's aligned */
-hr, .hr {
+/* hr, .hr {
   border: 1px solid;
   margin: -1px 0;
 }
@@ -88,4 +90,4 @@ sup {
 }
 sub {
   bottom: -0.25em;
-}
+} */
