@@ -14,7 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 
 // Services
-import { AlertService, AuthenticationService } from './_services/index';
+import { AlertService, AuthenticationService, EventEmiterService } from './_services/index';
 
 // Guards
 import { AuthGuard } from './_guards/index';
@@ -52,6 +52,7 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
     AlertService,
     AuthenticationService,
     UserService,
+    EventEmiterService,
     ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlertService, AuthenticationService } from '../_services/index';
+import { AlertService, AuthenticationService, EventEmiterService } from '../_services/index';
 
 @Component({
   selector: 'app-login',
@@ -16,22 +16,26 @@ export class LoginComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
 
-  isLoggedIn: boolean;
+  isLoggedIn;
 
+  @Output()
+  change: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService) { }
+    private alertService: AlertService,
+    private _eventEmitter: EventEmiterService) { }
 
   ngOnInit() {
     // reset login status
     this.authenticationService.logout();
-
+    this.isLoggedIn = false;
+    this.change.emit(this.isLoggedIn);
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    console.log(this.returnUrl);
+    this._eventEmitter.changeMessage(false);
   }
 
   getErrorMessage() {
@@ -46,6 +50,8 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(email, password)
     .subscribe(
       data => {
+        this.isLoggedIn = true;
+        this.change.emit(this.isLoggedIn);
         this.router.navigate([this.returnUrl]);
       },
       error => {

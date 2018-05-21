@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { EventEmiterService } from '../_services';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  isLoggedIn: boolean;
 
-  constructor() { }
+  constructor(
+    private _eventEmiter: EventEmiterService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
+    this._eventEmiter.changeMessage(true);
   }
 
+  newMessage() {
+  }
 }
