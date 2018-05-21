@@ -1,0 +1,92 @@
+<div class="container mat-elevation-z6">
+    <h2>Create Opening</h2>
+    <form name="form" (ngSubmit)="create-opening()" #f="ngForm" novalidate>
+
+    <!-- Title -->
+    <mat-form-field>
+      <input matInput placeholder="Title" name="Title" [(ngModel)]="model.title" #title="ngModel" required>
+    </mat-form-field>
+
+    <!-- Location -->
+    <mat-form-field>
+      <input matInput placeholder="Introduce tu estado" name="Phone" [(ngModel)]="model.phone" #phone="ngModel" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Introduce tu estado" name="State" [(ngModel)]="model.state" #state="ngModel" required>
+    </mat-form-field>
+
+    <!-- Salary -->
+    <mat-form-field>
+      <input matInput placeholder="Salary" type="number" name="Salary" [(ngModel)]="model.salary" #salary="ngModel" class="example-right-align">
+      <span matPrefix>$&nbsp;</span>
+      <span matSuffix>.00</span>
+    </mat-form-field>
+
+    <!-- Description -->
+    <mat-form-field>
+      <textarea matInput placeholder="Description" name="Description" [(ngModel)]="model.description" #description="ngModel"></textarea>
+    </mat-form-field>
+
+    <!-- Carreer -->
+
+      <!-- <mat-chip-list #chipList>
+        <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                [removable]="removable" (remove)="remove(fruit)">
+          {{fruit.name}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="New fruit..."
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)"
+              matInput [formControl]="myControl"
+              [matAutocomplete]="auto"/>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let fruit of fruits" [value]="fruit">
+            {{ fruit.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-chip-list> -->
+
+  <mat-chip-list #chipList>
+    <mat-chip *ngFor="let selectedCareer of selectedCareers" [selectable]="selectable"
+                [removable]="removable" (remove)="remove(selectedCareer)">
+          {{ selectedCareer }}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <input placeholder="Choose careers"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur"
+      (matChipInputTokenEnd)="add($event)"
+      matInput [formControl]="myControl"
+      [matAutocomplete]="auto"/>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let career of careers" [value]="career">
+        {{ career }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-chip-list>
+
+      <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let career of careers" [value]="career">
+          {{ career }}
+        </mat-option>
+      </mat-autocomplete>
+
+    <button mat-raised-button color="primary" type="submit">Registrarse</button>
+    <a mat-button routerLink="/login" color="accent">Cancel</a>
+
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    </form>
+</div>
+<!--
+  title
+  location
+  salary
+  description
+  carreer
+ -->

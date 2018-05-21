@@ -27,6 +27,7 @@ import { JwtInterceptor } from './_helpers/index';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserService } from './_services/user.service';
 import { ProfileFormComponent } from './profile-form/profile-form.component';
+import { OpeningFormComponent } from './opening-form/opening-form.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
     RegisterComponent,
     NavbarComponent,
     ProfileFormComponent,
+    OpeningFormComponent,
   ],
   imports: [
     BrowserModule,
