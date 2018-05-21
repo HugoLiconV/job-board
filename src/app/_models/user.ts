@@ -14,6 +14,6 @@ class Address {
 }
 
 enum kindsOfProfile {
-  student,
-  company
+  Student,
+  Company
 }

@@ -5,20 +5,20 @@ import { User } from '../_models';
 
 @Injectable()
 export class UserService {
+  private url = `${environment.API_URL}/users`;
 
- constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
- create(user: User) {
-    const url = `${environment.API_URL}/users`;
+  create(user: User) {
+    // const url = `${this.url}/users`;
     const master_token = {'access_token': environment.ACCESS_TOKEN};
     const data = Object.assign(master_token, user);
-    console.log(master_token);
-    console.log(data);
     // const encoded_data = JSON.stringify({'access_token': environment.ACCESS_TOKEN});
-    return this.http.post(url, data);
+    return this.http.post(this.url, data);
   }
-}
 
-// doPOST() {
-//   this.http.post(url, {moo:"foo",goo:"loo"}).subscribe(res => console.log(res.json()));
-// }
+  getMe() {
+    return this.http.get(`${this.url}/me`);
+  }
+
+}

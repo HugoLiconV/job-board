@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -14,7 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 
 // Services
-import { AlertService, AuthenticationService, EventEmiterService } from './_services/index';
+import { AlertService, AuthenticationService, EventEmiterService, OpeningService } from './_services/index';
 
 // Guards
 import { AuthGuard } from './_guards/index';
@@ -53,6 +53,12 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
     AuthenticationService,
     UserService,
     EventEmiterService,
+    OpeningService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    },
     ],
   bootstrap: [AppComponent]
 })

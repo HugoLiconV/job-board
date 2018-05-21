@@ -10,13 +10,7 @@
   </button>
   <mat-menu #menuAdd="matMenu">
     <button mat-menu-item [routerLink]="['project-form']">
-      <span>Proyecto</span>
-    </button>
-    <button mat-menu-item routerLink="donation-form">
-      <span>Donación</span>
-    </button>
-    <button mat-menu-item routerLink="event-form">
-      <span>Evento</span>
+      <span>Opening</span>
     </button>
   </mat-menu>
   <a *ngIf="!isLoggedIn" [routerLink]="['/register']" mat-button class="docs-button docs-navbar-hide-small">Register</a>

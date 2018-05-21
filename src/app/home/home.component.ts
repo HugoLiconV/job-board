@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EventEmiterService } from '../_services';
+import { EventEmiterService, UserService, OpeningService } from '../_services';
 import { Router } from '@angular/router';
 
 
@@ -10,16 +10,40 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   isLoggedIn: boolean;
-
+  openings;
+  cards = [
+    { title: 'Card 1', cols: 2, rows: 1 },
+    { title: 'Card 2', cols: 1, rows: 1 },
+    { title: 'Card 3', cols: 1, rows: 2 },
+    { title: 'Card 4', cols: 1, rows: 1 }
+  ];
   constructor(
     private _eventEmiter: EventEmiterService,
-    private router: Router
+    private router: Router,
+    private userService: UserService,
+    private openingService: OpeningService
     ) { }
 
   ngOnInit() {
     this._eventEmiter.changeMessage(true);
+    // this.getMe();
+    this.getMyOpenings();
   }
 
-  newMessage() {
+  getMe() {
+    this.userService.getMe().subscribe(me => {
+      console.log(me);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getMyOpenings() {
+    this.openingService.getMyOpenings().subscribe(openings => {
+      this.openings = openings;
+      console.log(openings);
+    }, error => {
+      console.log(error);
+    });
   }
 }

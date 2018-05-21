@@ -14,8 +14,8 @@ export class RegisterComponent implements OnInit {
   loading = false;
 
   profileKind = [
-    'student',
-    'company',
+    'Student',
+    'Company',
   ];
 
   // user: User;
