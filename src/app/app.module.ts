@@ -26,6 +26,7 @@ import { AlertComponent } from './_directives/index';
 import { JwtInterceptor } from './_helpers/index';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserService } from './_services/user.service';
+import { ProfileFormComponent } from './profile-form/profile-form.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { UserService } from './_services/user.service';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
+    ProfileFormComponent,
   ],
   imports: [
     BrowserModule,
