@@ -10,7 +10,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   create(user: User) {
-    // const url = `${this.url}/users`;
     const master_token = {'access_token': environment.ACCESS_TOKEN};
     const data = Object.assign(master_token, user);
     // const encoded_data = JSON.stringify({'access_token': environment.ACCESS_TOKEN});

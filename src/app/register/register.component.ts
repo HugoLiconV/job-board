@@ -18,8 +18,6 @@ export class RegisterComponent implements OnInit {
     'Company',
   ];
 
-  // user: User;
-
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
 
@@ -39,27 +37,28 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    this.loading = true;
     const user: User = {
-      email: 'hugo2@example.com',
-      password:  '123456',
-      kind:  'company',
-      name:  'Hugo',
-      phone:  '6141816618',
-      address: {
-        city:  'Aldama',
-        state:  'Chihuahua',
-      },
-      picture: ''
-      // email: this.model.email,
-      // password:  this.model.password,
-      // kind:  this.model.kind,
-      // name:  this.model.name,
-      // phone:  this.model.phone,
+      // email: 'hugo2@example.com',
+      // password:  '123456',
+      // kind:  'company',
+      // name:  'Hugo',
+      // phone:  '6141816618',
       // address: {
-      //   city:  this.model.city,
-      //   state:  this.model.state,
+      //   city:  'Aldama',
+      //   state:  'Chihuahua',
       // },
       // picture: ''
+      email: this.model.email,
+      password:  this.model.password,
+      kind:  this.model.kind,
+      name:  this.model.name,
+      phone:  this.model.phone,
+      address: {
+        city:  this.model.city,
+        state:  this.model.state,
+      },
+      picture: ''
     };
     // console.log(user);
     this.userService.create(user)

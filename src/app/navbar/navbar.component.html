@@ -1,7 +1,7 @@
 <nav class="docs-navbar-header">
   <a mat-button class="docs-button" routerLink="/">
     <!-- <img class="logo" src="./assets/logo.png" alt="San Vicente de Paul"> -->
-    <span>Job Board {{ isLoggedIn }}</span>
+    <span>Job Board</span>
   </a>
   <!-- Separador -->
   <div class="flex-spacer"></div>
@@ -21,7 +21,7 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="['/login']">
         <span>{{ isLoggedIn ? 'Cerrar Sesión' : 'Log In' }}</span>
       </button>
       <button *ngIf="!isLoggedIn"  mat-menu-item>

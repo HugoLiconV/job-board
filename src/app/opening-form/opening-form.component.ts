@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ENTER, COMMA} from '@angular/cdk/keycodes';
-import {MatChipInputEvent} from '@angular/material';
+import { ENTER, COMMA } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material';
 import { FormControl } from '@angular/forms';
+import { Opening } from '../_models';
+import { Router } from '@angular/router';
+import { UserService, AlertService, OpeningService } from '../_services';
 
 @Component({
   selector: 'app-opening-form',
@@ -25,8 +28,7 @@ export class OpeningFormComponent implements OnInit {
     'Licenciatura en administración'
   ];
 
-  selectedCareers = [];
-
+  selectedCareers: string[];
   visible = true;
   selectable = true;
   removable = true;
@@ -58,9 +60,42 @@ export class OpeningFormComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private alertService: AlertService,
+    private openingService: OpeningService
+  ) { }
 
   ngOnInit() {
+    this.selectedCareers = [''];
+    this.selectedCareers.pop();
   }
 
+  createOpening() {
+    this.loading = true;
+
+    const opening: Opening = {
+      title: this.model.title,
+      salary: this.model.salary,
+      carreer: this.selectedCareers,
+      description: this.model.description,
+      location: {
+        city: this.model.city,
+        state: this.model.state
+      }
+    };
+
+    this.openingService.create(opening)
+    .subscribe(
+      data => {
+        this.alertService.success('Opening created');
+        this.router.navigate(['home']);
+      },
+      error => {
+        this.alertService.error(error.message);
+        this.loading = false;
+      }
+    );
+  }
 }

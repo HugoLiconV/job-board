@@ -1,7 +1,7 @@
 <!-- f.form.valid &&  && register() -->
 <div class="container mat-elevation-z6">
     <h2>Register</h2>
-    <form name="form" (ngSubmit)="register()" #f="ngForm" novalidate>
+    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
     <mat-form-field>
       <input matInput placeholder="Enter your email" name="Email" [(ngModel)]="model.email" #email="ngModel" required>
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>

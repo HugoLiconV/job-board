@@ -14,7 +14,11 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 
 // Services
-import { AlertService, AuthenticationService, EventEmiterService, OpeningService } from './_services/index';
+import {
+AlertService,
+AuthenticationService,
+EventEmiterService,
+OpeningService} from './_services/index';
 
 // Guards
 import { AuthGuard } from './_guards/index';
