@@ -1,6 +1,6 @@
 <div class="container mat-elevation-z6">
     <h2>Create Opening</h2>
-    <form name="form" (ngSubmit)="createOpening()" #f="ngForm" novalidate>
+    <form name="form" (ngSubmit)="f.form.valid &&createOpening()" #f="ngForm" novalidate>
 
       <!-- Title -->
       <mat-form-field>
